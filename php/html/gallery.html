@@ -1,0 +1,11 @@
+﻿
+<?php
+	$size = GetImageSize($image); 
+	$width = $size[0]; 
+	$height = $size[1]; 
+	$imageblob = addslashes(fread(fopen($image, "r"), filesize($image))); 
+	$filesize = filesize($image) ; 
+
+	$query=" INSERT INTO gallery VALUES ('', '$imageblob', '$title', '$width','$height', '$filesize', '$detail' )" ; 
+	$result=mysql_query($query,$connect ); 
+?>
